@@ -1,0 +1,8 @@
+flowchart LR
+    A[Administrator laptop] -->|SSH key TCP/22| SG[Cloud security group]
+    SG --> VM[Ubuntu Linux VM]
+    VM --> FW[UFW host firewall]
+    FW --> SSH[sshd]
+    FW --> WEB[Nginx TCP/80]
+    U[Internet user] -->|HTTP TCP/80| SG
+    SG --> VM
